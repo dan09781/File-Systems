@@ -1,0 +1,13 @@
+cc -MM  testfs.c mktestfs.c bitmap.c block.c super.c inode.c read_write.c dir.c file.c common.c > depend.mk
+cc -g -Wall -Wextra -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64     -c -o testfs.o testfs.c
+cc -g -Wall -Wextra -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64     -c -o bitmap.o bitmap.c
+cc -g -Wall -Wextra -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64     -c -o block.o block.c
+cc -g -Wall -Wextra -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64     -c -o super.o super.c
+cc -g -Wall -Wextra -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64     -c -o inode.o inode.c
+cc -g -Wall -Wextra -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64     -c -o read_write.o read_write.c
+cc -g -Wall -Wextra -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64     -c -o dir.o dir.c
+cc -g -Wall -Wextra -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64     -c -o file.o file.c
+cc -g -Wall -Wextra -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64     -c -o common.o common.c
+cc -o testfs -g -Wall -Wextra -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64   testfs.o bitmap.o block.o super.o inode.o read_write.o dir.o file.o common.o -lpopt 
+cc -g -Wall -Wextra -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64     -c -o mktestfs.o mktestfs.c
+cc -o mktestfs -g -Wall -Wextra -Werror -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64   mktestfs.o bitmap.o block.o super.o inode.o read_write.o dir.o file.o common.o -lpopt     
